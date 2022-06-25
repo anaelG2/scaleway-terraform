@@ -1,0 +1,4 @@
+%{ if is_webserver_node == true }[webserver_nodes]%{ else }[other]%{ endif }
+%{ for index, hostname in hostnames ~}
+${hostname} ansible_host=${ansible_hosts[index]} ansible_user=root ansible_ssh_private_key_file=/home/anaelg/.ssh/id_rsa_projetannuel ansible_python_interpreter=/usr/bin/python3
+%{ endfor ~}
