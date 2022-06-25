@@ -16,10 +16,13 @@ resource "scaleway_instance_server" "webserver-node-1" {
   image             = "debian_bullseye"
   tags              = ["node", "webserver","projet-annuel"]
   ip_id             = scaleway_instance_ip.public_ip_1.id
-  security_group_id = scaleway_instance_security_group.www.id
+  security_group_id = scaleway_instance_security_group.scaleway_security_group.id
   provisioner "local-exec" {
     command = "ansible all -m ping -i hosts" 
   }
+  depends_on = [
+    scaleway_lb.loadbalancer, scaleway_instance_security_group.scaleway_security_group , scaleway_instance_ip.public_ip_1
+  ]
 }
 
 output "webserver-node-1-ip" {

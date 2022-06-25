@@ -16,18 +16,16 @@ resource "scaleway_instance_server" "webserver-node-2" {
   image             = "debian_bullseye"
   tags              = ["node", "webserver","projet-annuel"]
   ip_id             = scaleway_instance_ip.public_ip_2.id
-  security_group_id = scaleway_instance_security_group.www.id
+  security_group_id = scaleway_instance_security_group.scaleway_security_group.id
   provisioner "local-exec" {
     command = "echo 'test'"
   }
+  depends_on = [
+    scaleway_lb.loadbalancer, scaleway_instance_security_group.scaleway_security_group , scaleway_instance_ip.public_ip_2
+  ]
 }
 
 output "webserver-node-2-ip" {
   value = scaleway_instance_server.webserver-node-2.public_ip
 }
 
-
-# resource "local_file" "webserver2-ip" {
-#  filename = "./hosts"
-#  content = scaleway_instance_server.webserver-node-2.oubl
-# }
