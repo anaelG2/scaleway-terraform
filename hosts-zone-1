@@ -1,2 +1,0 @@
-[webserver_nodes]
-projet-annuel-node-fr-par-1 ansible_host=163.172.143.76 ansible_user=root ansible_ssh_private_key_file=/home/anaelg/.ssh/id_rsa_projetannuel ansible_python_interpreter=/usr/bin/python3
