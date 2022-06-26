@@ -1,4 +1,14 @@
-%{ if is_webserver_node == true }[webserver_nodes]%{ else }[other]%{ endif }
+[webserver_nodes]
 %{ for index, hostname in hostnames ~}
 ${hostname} ansible_host=${ansible_hosts[index]} ansible_user=root ansible_ssh_private_key_file=/home/anaelg/.ssh/id_rsa_projetannuel ansible_python_interpreter=/usr/bin/python3
+%{ endfor ~}
+
+[loadbalancers]
+%{ for index, loadbalancer in loadbalancers ~}
+${loadbalancer} 
+%{ endfor ~}
+
+[buckets]
+%{ for index, bucket in buckets ~}
+${bucket} 
 %{ endfor ~}
