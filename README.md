@@ -21,7 +21,7 @@ Les variables d'environnement suivantes doivent être définies :
 Utilisation
 ------------
 
-1. Personnaliser le playbook en modifiant les valeures des variables dans le fichier "vars.tf"
+1. Personnaliser le playbook en modifiant les valeurs des variables dans le fichier "vars.tf"
 
 2. Appliquez les commandes suivantes : 
     - `terraform plan` pour obtenir un aperçu du plan d'exécution
