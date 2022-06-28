@@ -58,11 +58,6 @@ resource "scaleway_instance_server" "nodes" {
   tags              = ["node", "webserver", "projet-annuel"]
   ip_id             = "${scaleway_instance_ip.public_ip_zone[count.index].id}"
   security_group_id = scaleway_instance_security_group.scaleway_security_group.id
-  depends_on = [
-    scaleway_lb.loadbalancer,
-    scaleway_instance_security_group.scaleway_security_group,
-    scaleway_instance_ip.public_ip_zone
-  ]
 }
 
 resource "scaleway_lb_backend" "backend" {
