@@ -21,7 +21,8 @@ Les variables d'environnement suivantes doivent être définies :
 Utilisation
 ------------
 
-1. Personnaliser le playbook en modifiant les valeures des variables dans le fichier "vars.tf"
+1. Personnaliser le playbook en modifiant les valeurs des variables dans le fichier "vars.tf"
+
 
 2. Appliquez les commandes suivantes : 
     - `terraform plan` pour obtenir un aperçu du plan d'exécution
@@ -42,7 +43,7 @@ Voici les différentes variables qui sont utilisées dans ce rôle :
 | scaleway_region  | Région Scaleway sur laquelle créer la ressource. [voir plus](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/guides/regions_and_zones) |
 | scaleway_zone  | Zone Scaleway sur laquelle créer la ressource. [voir plus](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/guides/regions_and_zones) |
 | instance_count  | Quantité d'instances à créer |
-| webserver_node_name  | Modèle de nom des instances (sera indexé selon le modèle d'exemple suivant "modele-1") |
+| webserver_node_name  | Modèle de nom des instances (sera précédé d'un chiffre) |
 | instance_type  | Type d'instances à créer. [voir plus](https://developers.scaleway.com/en/products/instance/api/#servers-8bf7d7) |
 | scaleway_loadbalancer_name  | Nom assigné au loadbalancer |
 | scaleway_bucket_name  | Nom assigné au bucket |
