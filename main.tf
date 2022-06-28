@@ -93,11 +93,12 @@ resource "scaleway_lb_route" "route" {
   depends_on = [scaleway_lb_frontend.frontend]
 }
 
-# Output des valeurs à passer au fichier output.tf (IP et Nom des instance des zones 1 et 2)
-output "webserver_names_zone" {
+# Valeurs à afficher en sortie du script (IP et Nom des instance des zones 1 et 2)
+output "webserver_names_ip_list" {
   value = ["${scaleway_instance_server.nodes.*.name}"]
 }
-output "webserver_ips_zone" {
+
+output "webserver_ips_list" {
   value = ["${scaleway_instance_server.nodes.*.public_ip}"]
 }
 
