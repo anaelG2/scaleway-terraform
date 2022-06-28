@@ -26,15 +26,14 @@ resource "scaleway_lb" "loadbalancer" {
   zone       = scaleway_lb_ip.loadbalancer-ip.zone
   project_id = var.scaleway_project_id
   name       = "${var.projet_name}-${var.scaleway_loadbalancer_name}"
-  type       = "LB-GP-L"
+  type       = var.scaleway_lb_type
   depends_on = [
     scaleway_lb_ip.loadbalancer-ip
   ]
 }
 
-
-### Création des groupes de sécurité pour les instances des zones 1 et 2
-resource "scaleway_instance_security_group" "scaleway_security_group_zone" {
+### Création du security group 
+resource "scaleway_instance_security_group" "scaleway_security_group" {
   project_id              = var.scaleway_project_id
   zone                    = var.scaleway_zone
   name                    = "security-group-${var.scaleway_region}"
@@ -58,10 +57,10 @@ resource "scaleway_instance_server" "nodes" {
   image             = "debian_bullseye"
   tags              = ["node", "webserver", "projet-annuel"]
   ip_id             = "${scaleway_instance_ip.public_ip_zone[count.index].id}"
-  security_group_id = scaleway_instance_security_group.scaleway_security_group_zone.id
+  security_group_id = scaleway_instance_security_group.scaleway_security_group.id
   depends_on = [
     scaleway_lb.loadbalancer,
-    scaleway_instance_security_group.scaleway_security_group_zone,
+    scaleway_instance_security_group.scaleway_security_group,
     scaleway_instance_ip.public_ip_zone
   ]
 }
