@@ -4,10 +4,10 @@ Terraform Scaleway - Serveurs Webs HA
 Script Terraform permettant de provisionner un cluster de serveurs scaleway en haute-disponibilité sur une zone unique. La quantité de serveurs peut être définie, les serveurs sont exposés via un loadbalancer provisionné chez Scaleway également. Pour cela, le script Terraform utilise le module "Provider" de Scaleway. Le script génère également un inventaire dynamique prêt à être utilisé avec un playbook ansible.
 
 Les ressources provisionnées par le script sont les suivantes : 
-    - scaleway_loadbalancer (ip, backend, frontend, route)
-    - scaleway_security_group 
-    - scaleway_instance_server 
-    - scaleway_bucket
+- scaleway_loadbalancer (ip, backend, frontend, route)
+- scaleway_security_group 
+- scaleway_instance_server 
+- scaleway_bucket
 
 
 Prérequis
@@ -22,7 +22,10 @@ Utilisation
 ------------
 
 1. Personnaliser le playbook en modifiant les valeurs des variables dans le fichier "vars.tf"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45d158c5f03354d8b59a8eef00639d2dab7da803
 
 2. Appliquez les commandes suivantes : 
     - `terraform plan` pour obtenir un aperçu du plan d'exécution
