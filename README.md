@@ -22,12 +22,9 @@ Utilisation
 ------------
 
 1. Personnaliser le playbook en modifiant les valeurs des variables dans le fichier "vars.tf"
-<<<<<<< HEAD
 
-=======
->>>>>>> 45d158c5f03354d8b59a8eef00639d2dab7da803
-
-2. Appliquez les commandes suivantes : 
+2. Initialiser le projet Terraform : `terraform init` 
+3. Appliquez les commandes suivantes : 
     - `terraform plan` pour obtenir un aperçu du plan d'exécution
     - `terraform apply` pour créer les ressources
     - `terraform destroy` pour détruire les ressources
